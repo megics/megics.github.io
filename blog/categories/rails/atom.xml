@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | MEGİC'in BLOĞU]]></title>
   <link href="http://megics.github.io/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://megics.github.io/"/>
-  <updated>2019-01-24T15:55:49+03:00</updated>
+  <updated>2019-01-24T15:57:42+03:00</updated>
   <id>http://megics.github.io/</id>
   <author>
     <name><![CDATA[Meliha Gizem ÇELİK]]></name>
@@ -18,13 +18,7 @@
     <link href="http://megics.github.io/blog/2019/01/24/octopress-ile-blog-olusturma/"/>
     <updated>2019-01-24T15:51:59+03:00</updated>
     <id>http://megics.github.io/blog/2019/01/24/octopress-ile-blog-olusturma</id>
-    <content type="html"><![CDATA[<h1>Octopress ile Blog Oluşturma</h1>
-
-<hr />
-
-<hr />
-
-<p>Bu yazımda Octopress alt yapısını kullanarak blog yapımının aşamalarını anlatacağım. Octopress, Rails tabanlı bir blog yazılımıdır. İşletim sistemi olarak Mint kullandığım için Linux'ta kurulumunu anlatacağım. Kurulum esnasında aldığım hataların çözümünü en altta anlattım benzer hatalar almanız durumunda yardımcı olacağını düşünüyorum :)</p>
+    <content type="html"><![CDATA[<p>Bu yazımda Octopress alt yapısını kullanarak blog yapımının aşamalarını anlatacağım. Octopress, Rails tabanlı bir blog yazılımıdır. İşletim sistemi olarak Mint kullandığım için Linux'ta kurulumunu anlatacağım. Kurulum esnasında aldığım hataların çözümünü en altta anlattım benzer hatalar almanız durumunda yardımcı olacağını düşünüyorum :)</p>
 
 <p>Öncelikle sistemimizde kurulu olması gerekenler ;</p>
 
