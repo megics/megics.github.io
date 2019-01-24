@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | MEGİC'in BLOĞU]]></title>
+  <link href="http://megics.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://megics.github.io/"/>
+  <updated>2019-01-24T15:55:49+03:00</updated>
+  <id>http://megics.github.io/</id>
+  <author>
+    <name><![CDATA[Meliha Gizem ÇELİK]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress Ile Blog Oluşturma]]></title>
+    <link href="http://megics.github.io/blog/2019/01/24/octopress-ile-blog-olusturma/"/>
+    <updated>2019-01-24T15:51:59+03:00</updated>
+    <id>http://megics.github.io/blog/2019/01/24/octopress-ile-blog-olusturma</id>
+    <content type="html"><![CDATA[<h1>Octopress ile Blog Oluşturma</h1>
+
+<hr />
+
+<hr />
+
+<p>Bu yazımda Octopress alt yapısını kullanarak blog yapımının aşamalarını anlatacağım. Octopress, Rails tabanlı bir blog yazılımıdır. İşletim sistemi olarak Mint kullandığım için Linux'ta kurulumunu anlatacağım. Kurulum esnasında aldığım hataların çözümünü en altta anlattım benzer hatalar almanız durumunda yardımcı olacağını düşünüyorum :)</p>
+
+<p>Öncelikle sistemimizde kurulu olması gerekenler ;</p>
+
+<ul>
+<li>Github hesabı ve github reposu (kullanıcıAdınız.github.io isimli oluşturulmuş bir depo)</li>
+<li>Git</li>
+<li>RVM ile Ruby (Ruby versiyonu 1.9.3'ten büyük olmalı)</li>
+</ul>
+
+
+<h3>Kurulum</h3>
+
+<hr />
+
+<p>İlk adımda terminalde projeyi konumlandırmak istediğimiz klasörü açıyoruz. Octopress deposunu github'tan klonlayalım ve dosyanın içine girelim :</p>
+
+<pre><code class="sh">    $git clone git://github.com/imathis/octopress.git octopress
+    $cd octopress
+</code></pre>
+
+<p>Gerekli gem kurulumlarımızı gerçekleştirelim :
+<code>sh
+   $gem install bundler
+   $bundle install
+   $rake install
+</code>
+<strong>Farklı tema kullanmak isteyenler için önerim:</strong></p>
+
+<blockquote><p><strong><a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">Octopress Temaları</a></strong> linkinden beğendiğiniz bir temayı seçebilirsiniz. <strong>rake install</strong> komutu ile default tema yüklendiği için bu komutu direkt çalıştırmayın, temaya uygun komutu seçtiğiniz temanın github reposundan gerekli adımları takip ederek çalıştırmanızı öneririm.</p></blockquote>
+
+<h3>Config Dosyası Ayarları</h3>
+
+<hr />
+
+<p>Kurulumu tamamladığımıza göre <strong>_config.yml</strong> dosyasını açalım ve içerisinde bulunan kişiselleştirme ayarlarını yapalım. Aşağıda yazdığım bilgileri kişisel olarak dolduralım. Ek olarak gün-ay-yıl formatını date_format kısmında değiştirelim:
+<code>sh
+...
+url: http://githubKullanıcıAdınız.github.io
+title: Bloğun Başlığı
+subtitle: Bloğun Alt Başlığı
+author: Adınız Soyadınız
+simple_search: https://www.google.com/search
+description: Açıklama (isteğe bağlı)
+..
+date_format: "%B %e %A, %Y"
+...
+</code>
+Aynı dosyada bloğunuza bağlayıp görüntüleyebileceğiniz sosyal medya hesap ayarlarınız bulunuyor(Github, Twitter, Google+ vs). Ben sadece github hesabımı bağladım. Sırasıyla kullanıcı adı, tüm repoların görünmesi için 0, profil linki ve forkların görünmesi için true şeklinde ayarlayalım.
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="p">&amp;</span>hellip<span class="p">;</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;Github repositories&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;github_user: githubKullaniciAdiniz
+</span><span class='line'>github_repo_count: 0
+</span><span class='line'>github_show_profile_link: <span class="nb">true</span>
+</span><span class='line'>github_skip_forks: <span class="nb">true</span>
+</span><span class='line'><span class="p">&amp;</span>hellip<span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+Bloğumuzu kişiselleştirmeyi tamamladık!</p>
+
+<h3>Blog Yazısı Oluşturma</h3>
+
+<hr />
+
+<p>Yazımızı aşağıdaki komutla oluşturalım:
+<code>sh
+$rake new_post["İlk Yazımın Başlığı"]
+</code>
+<strong>octopress/source/_posts</strong> dizinine geldiğimizde oluşturduğumuz yazıyı &lsquo;tarih-yazimizin-ismi.markdown&rsquo; ismiyle bulalım ve dosyayı açalım. Burada layout, title, date, comments hazır geliyor. Yazımızın kategorisini, categories kısmından ekleyelim:</p>
+
+<pre><code class="sh">---
+layout: post
+title: "İlk Yazımın Başlığı"
+date: 2019-01-24 01:11:08 +0300
+comments: true
+categories:[kategori1,kategori2,kategori3] 
+---
+YAZIMIZI YAZMAYA BURADAN BAŞLIYORUZ !
+MERHABA BLOĞUM :)
+...
+..
+</code></pre>
+
+<p><strong>NOT: Yazımızı markdown formatıyla yazacağımızı unutmayalım! Bunun için online editörleri kullanabilirsiniz.</strong></p>
+
+<h3>Github Deposuna Bağlama</h3>
+
+<hr />
+
+<p>Öncelikle github'da kullanıcıadınız.github.io ismiyle bir repository oluşturalım. Bilgisayarımızdaki dosyaları oluşturduğumuz depoya bağlayalım:
+<code>sh
+$rake setup_github_pages[repository urli]
+</code>
+Şimdi ise bilgisayarımızdaki dosyaları depomuza atalım:
+<code>sh
+$rake generate
+$rake deploy
+</code>
+<strong>Bu iki komutu her yeni yazı oluşturduğumuzda ve depomuza göndereceğimizde kullanacağız. Depoya göndermeden önce localde görüntülemek isterseniz aşağıdaki komut ile <a href="http://localhost:4000/">http://localhost:4000/</a> adresinden ulaşabilirsiniz:</strong>
+<code>sh
+$rake preview
+</code></p>
+
+<h3>Alınabilecek Hatalar ve Çözümleri</h3>
+
+<hr />
+
+<p>Bloğumu linkteki <a href="https://github.com/bhrigu123/abacus">tema</a> ile yapmak istedim. İlk olarak temayı klonladım. Aldığım ilk hata Bundler hatası oldu. Temanın gereksinimi olarak <em>Bundler 2.0 ve üzerini</em> istiyor. Sistemde default olarak <em>1.7</em> geldiği için güncellemeniz gerekiyor.</p>
+
+<h4>Bundler Hatası :</h4>
+
+<pre><code class="sh">$rake install['abacus']
+</code></pre>
+
+<p>Yukarıdaki komutu çalıştırdım ve şu hatayı aldım:</p>
+
+<blockquote><p><strong><em>You must use Bundler 2 or greater with this lockfile.</em></strong></p></blockquote>
+
+<p>Çözüm olarak sistemdeki Bundler gemini aşağıdaki gibi güncelleyebilirsiniz:
+<code>sh
+$gem update --system
+$gem install bundler
+$bundle update --bundler
+</code>
+Bu komutları çalıştırdıktan sonra <strong>bundler &ndash;version</strong> ile kontrol ettiğinizde <strong>Bundler version 2.0.1</strong> dönüşünü aldıysanız sorun çözülmüş demektir.</p>
+
+<h4>Gem::LoadError Hatası</h4>
+
+<p>Bu hata aşağıda yazdığım gibi uzayıp giden devamında bundler dosya yolları olan bir hatadır. Böyle bir hata aldıysanız Gemfile'dakiyle sisteminizdeki <em>rake</em> gem'inin versiyonlarının uymamamasından kaynaklanır.
+Yukarıdak kullandığımız <strong><em>rake install</em></strong> komutlarını <strong><em>bundle exec rake install</em></strong> şeklinde çalıştırılınca sorun çözülecektir.</p>
+
+<blockquote><p><strong>rake aborted!
+Gem::LoadError: You have already activated rake 12.3.2, but your Gemfile requires rake 10.5.0. Prepending bundle exec to your command may solve this.</strong>
+&hellip;.</p></blockquote>
+
+<h6>Octopress ile bloğumuzu oluşturduk, işinize yaramış olması dileğiyle :)</h6>
+]]></content>
+  </entry>
+  
+</feed>
